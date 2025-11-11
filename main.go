@@ -5,6 +5,7 @@ import (
 	"net/http"
 
 	"github.com/gin-gonic/gin"
+	v1 "github.com/qmajid/daneshkar/internal/route/v1"
 )
 
 type Info struct {
@@ -15,6 +16,7 @@ type Info struct {
 func main() {
 	// Create a Gin router with default middleware (logger and recovery)
 	r := gin.Default()
+	v1.InitRoute(r)
 
 	// Define a simple GET endpoint
 	r.GET("/ping", Pong)
