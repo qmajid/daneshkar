@@ -1,0 +1,497 @@
+[
+    {
+        "id": "p001",
+        "name": "Ghormeh Sabzi",
+        "persian_name": "قورمه‌سبزی",
+        "tags": [
+            "stew",
+            "herbs",
+            "beef",
+            "main"
+        ],
+        "ingredients": [
+            "500g beef stew meat",
+            "1 cup kidney beans (soaked)",
+            "2 cups chopped parsley",
+            "1 cup chopped cilantro",
+            "1/2 cup chopped fenugreek",
+            "3 dried limes",
+            "2 onions, chopped",
+            "1 tsp turmeric",
+            "salt to taste",
+            "black pepper to taste"
+        ],
+        "instructions": [
+            "سبزی‌ها را خرد و با روغن تفت دهید تا آب آن تبخیر شود.",
+            "پیاز را سرخ کرده، گوشت و زردچوبه را اضافه کنید و تفت دهید.",
+            "لوبیا و لیمو عمانی را اضافه کنید و با آب بپزید تا گوشت نرم شود.",
+            "در انتها سبزی‌های تفت‌داده را اضافه کنید و با حرارت ملایم چند دقیقه بپزید."
+        ],
+        "publishedAt": "2025-01-01T00:00:00Z"
+    },
+    {
+        "id": "p002",
+        "name": "Fesenjan",
+        "persian_name": "فسنجان",
+        "tags": [
+            "stew",
+            "pomegranate",
+            "walnut",
+            "main"
+        ],
+        "ingredients": [
+            "1 kg chicken pieces",
+            "2 cups walnuts, finely ground",
+            "1 cup pomegranate molasses",
+            "1 onion, chopped",
+            "2 tbsp sugar (optional)",
+            "salt and pepper"
+        ],
+        "instructions": [
+            "گردو را تفت دهید و با مقدار کمی آب بپزید تا روغن پس دهد.",
+            "پیاز و مرغ را تفت داده و گردوی پخته را اضافه کنید.",
+            "رب انار و شکر و نمک را افزوده و روی حرارت ملایم بپزید تا سس جا بیفتد.",
+            "در صورت نیاز آب اضافه کنید و تا نرم شدن کامل مرغ بپزید."
+        ],
+        "publishedAt": "2025-01-01T00:00:00Z"
+    },
+    {
+        "id": "p003",
+        "name": "Chelo Kabab Koobideh",
+        "persian_name": "چلوکباب کوبیده",
+        "tags": [
+            "kebab",
+            "rice",
+            "beef",
+            "main"
+        ],
+        "ingredients": [
+            "500g ground beef (20% fat)",
+            "1 large onion, grated and drained",
+            "1 tsp salt",
+            "1/2 tsp black pepper",
+            "2 cups basmati rice",
+            "pinch saffron dissolved in 2 tbsp hot water"
+        ],
+        "instructions": [
+            "گوشت و پیاز رنده شده و ادویه را خوب ورز دهید تا چسبندگی پیدا کند.",
+            "مواد را به سیخ کشیده و روی ذغال یا گریل کباب کنید.",
+            "برنج را آبکش کرده و با زعفران دم کنید.",
+            "کباب را همراه برنج و کره سرو کنید."
+        ],
+        "publishedAt": "2025-01-01T00:00:00Z"
+    },
+    {
+        "id": "p004",
+        "name": "Zereshk Polo ba Morgh",
+        "persian_name": "زرشک‌پلو با مرغ",
+        "tags": [
+            "rice",
+            "chicken",
+            "main"
+        ],
+        "ingredients": [
+            "3 cups basmati rice",
+            "400g chicken pieces",
+            "1 cup barberries (zereshk)",
+            "2 tbsp sugar",
+            "1 large onion",
+            "pinch saffron",
+            "salt and turmeric"
+        ],
+        "instructions": [
+            "مرغ را با پیاز، زردچوبه و نمک تفت داده و کمی بپزید.",
+            "زرشک را با کره و کمی شکر سریع تفت دهید.",
+            "برنج را آبکش کنید و با زعفران دم کنید.",
+            "برنج را با زرشک سرو کرده و مرغ را روی آن بگذارید."
+        ],
+        "publishedAt": "2025-01-01T00:00:00Z"
+    },
+    {
+        "id": "p005",
+        "name": "Tahchin",
+        "persian_name": "ته‌چین",
+        "tags": [
+            "rice",
+            "yogurt",
+            "baked",
+            "main"
+        ],
+        "ingredients": [
+            "3 cups basmati rice",
+            "2 cups yogurt",
+            "2 eggs",
+            "1/2 cup oil or butter",
+            "1 tsp saffron dissolved",
+            "300g cooked shredded chicken",
+            "salt"
+        ],
+        "instructions": [
+            "برنج را نیم‌پز کنید.",
+            "ماست، تخم‌مرغ، زعفران و روغن را مخلوط و با نصف برنج ترکیب کنید.",
+            "لایه‌بردار را در ظرف بریزید، مرغ را اضافه و باقیمانده برنج را روی آن بریزید.",
+            "در فر یا روی شعله با در بسته بپزید تا ته‌دیگ طلایی شود."
+        ],
+        "publishedAt": "2025-01-01T00:00:00Z"
+    },
+    {
+        "id": "p006",
+        "name": "Gheymeh",
+        "persian_name": "قیمه",
+        "tags": [
+            "stew",
+            "beef",
+            "split peas",
+            "main"
+        ],
+        "ingredients": [
+            "500g beef, cubed",
+            "1 cup yellow split peas",
+            "2 tbsp tomato paste",
+            "2 dried limes",
+            "1 large onion",
+            "potatoes (for fries)",
+            "salt and turmeric"
+        ],
+        "instructions": [
+            "پیاز و گوشت را تفت دهید و زردچوبه اضافه کنید.",
+            "نخود‌لپه و رب گوجه را اضافه کرده و با آب بپزید.",
+            "لیمو عمانی را در خورش گذاشته و با حرارت ملایم بپزید تا گوشت نرم شود.",
+            "سیب‌زمینی خلالی را سرخ کرده و هنگام سرو اضافه کنید."
+        ],
+        "publishedAt": "2025-01-01T00:00:00Z"
+    },
+    {
+        "id": "p007",
+        "name": "Khoresht Bademjan",
+        "persian_name": "خورش بادمجان",
+        "tags": [
+            "stew",
+            "eggplant",
+            "main"
+        ],
+        "ingredients": [
+            "3 medium eggplants",
+            "500g beef or lamb",
+            "2 tomatoes or 2 tbsp tomato paste",
+            "1 onion",
+            "2 dried limes",
+            "salt and pepper"
+        ],
+        "instructions": [
+            "بادمجان‌ها را سرخ یا کبابی کنید.",
+            "پیاز و گوشت را تفت داده، رب یا گوجه را اضافه کنید.",
+            "بادمجان و لیمو عمانی را اضافه کرده و بپزید تا خورش جا بیفتد.",
+            "چاشنی‌ها را تنظیم کرده و سرو کنید."
+        ],
+        "publishedAt": "2025-01-01T00:00:00Z"
+    },
+    {
+        "id": "p008",
+        "name": "Kabab Barg",
+        "persian_name": "کباب برگ",
+        "tags": [
+            "kebab",
+            "lamb",
+            "main"
+        ],
+        "ingredients": [
+            "600g lamb or beef filet, thinly sliced",
+            "1 onion, grated",
+            "pinch saffron",
+            "salt and pepper",
+            "2 cups basmati rice"
+        ],
+        "instructions": [
+            "گوشت را با پیاز و نمک و فلفل مزه‌دار کرده و چند ساعت استراحت دهید.",
+            "گوشت را به سیخ بکشید و روی آتش یا گریل بپزید.",
+            "برنج را دم کنید و با کباب سرو نمایید.",
+            "می‌توانید زعفران روی برنج بریزید."
+        ],
+        "publishedAt": "2025-01-01T00:00:00Z"
+    },
+    {
+        "id": "p009",
+        "name": "Joojeh Kabab",
+        "persian_name": "جوجه‌کباب",
+        "tags": [
+            "kebab",
+            "chicken",
+            "main"
+        ],
+        "ingredients": [
+            "700g chicken pieces (bone-in or boneless)",
+            "1 cup yogurt",
+            "1 tsp saffron dissolved",
+            "2 tbsp lemon juice",
+            "1 onion grated",
+            "salt"
+        ],
+        "instructions": [
+            "مرغ را با ماست، زعفران، پیاز و لیمو مزه‌دار کنید و چند ساعت بخوابانید.",
+            "مرغ را به سیخ کشیده و روی گریل یا ذغال کباب کنید.",
+            "با نان یا برنج و پیاز کبابی سرو کنید."
+        ],
+        "publishedAt": "2025-01-01T00:00:00Z"
+    },
+    {
+        "id": "p010",
+        "name": "Adas Polo",
+        "persian_name": "عدس‌پلو",
+        "tags": [
+            "rice",
+            "lentils",
+            "main"
+        ],
+        "ingredients": [
+            "3 cups basmati rice",
+            "1 cup lentils",
+            "1 onion",
+            "1/2 cup raisins",
+            "1 tsp cinnamon",
+            "salt and oil"
+        ],
+        "instructions": [
+            "عدس را بپزید و کنار بگذارید.",
+            "پیاز و کشمش را تفت دهید.",
+            "برنج را نیم‌پز کرده و لایه‌لایه با عدس و کشمش دم کنید.",
+            "با دارچین سرو کنید."
+        ],
+        "publishedAt": "2025-01-01T00:00:00Z"
+    },
+    {
+        "id": "p011",
+        "name": "Baghali Polo ba Mahiche",
+        "persian_name": "باقالی‌پلو با ماهیچه",
+        "tags": [
+            "rice",
+            "lamb",
+            "main"
+        ],
+        "ingredients": [
+            "3 cups basmati rice",
+            "2 cups fava beans (fresh or frozen)",
+            "2 cups dill (chopped)",
+            "1 lamb shank",
+            "saffron",
+            "salt"
+        ],
+        "instructions": [
+            "ماهیچه را با پیاز و ادویه بپزید تا نرم شود.",
+            "برنج را نیم‌پز کنید و با شوید و باقالی ترکیب کنید.",
+            "برنج را دم دهید و با ماهیچه سرو کنید.",
+            "زَعفران را به برنج اضافه کنید."
+        ],
+        "publishedAt": "2025-01-01T00:00:00Z"
+    },
+    {
+        "id": "p012",
+        "name": "Kaleh Pacheh",
+        "persian_name": "کله‌پاچه",
+        "tags": [
+            "soup",
+            "breakfast",
+            "traditional"
+        ],
+        "ingredients": [
+            "1 sheep head (cleaned)",
+            "2 trotters",
+            "1 onion",
+            "salt and pepper",
+            "water"
+        ],
+        "instructions": [
+            "اجزا را خوب بشویید و در قابلمه بریزید.",
+            "با آب و ادویه بپزید تا گوشت کاملاً نرم شود.",
+            "روغن‌ها را جدا کرده و با لیموترش و نان سرو کنید."
+        ],
+        "publishedAt": "2025-01-01T00:00:00Z"
+    },
+    {
+        "id": "p013",
+        "name": "Ash Reshteh",
+        "persian_name": "آش رشته",
+        "tags": [
+            "soup",
+            "herbs",
+            "noodles"
+        ],
+        "ingredients": [
+            "1 cup chickpeas",
+            "1 cup lentils",
+            "1 cup beans",
+            "2 cups chopped herbs (تره، جعفری، گشنیز، اسفناج)",
+            "reshteh noodles",
+            "kashk",
+            "fried onion"
+        ],
+        "instructions": [
+            "حبوبات را جداگانه پخته و کنار بگذارید.",
+            "سبزی‌ها را تفت داده و با حبوبات و رشته به قابلمه اضافه کنید.",
+            "نهایتاً کشک و نعناع داغ و پیاز داغ را اضافه و سرو کنید."
+        ],
+        "publishedAt": "2025-01-01T00:00:00Z"
+    },
+    {
+        "id": "p014",
+        "name": "Mirza Ghasemi",
+        "persian_name": "میرزا قاسمی",
+        "tags": [
+            "eggplant",
+            "smoked",
+            "appetizer"
+        ],
+        "ingredients": [
+            "3 large eggplants",
+            "3 tomatoes",
+            "4 cloves garlic",
+            "2 eggs",
+            "salt and pepper",
+            "oil"
+        ],
+        "instructions": [
+            "بادمجان‌ها را کبابی کنید و پوست بگیرید.",
+            "سیر را تفت دهید، گوجه را اضافه و بپزید.",
+            "بادمجان‌ها را بیفزایید و در صورت دلخواه تخم‌مرغ اضافه کنید و مخلوط کنید.",
+            "نمک و فلفل را تنظیم و سرو کنید."
+        ],
+        "publishedAt": "2025-01-01T00:00:00Z"
+    },
+    {
+        "id": "p015",
+        "name": "Kuku Sabzi",
+        "persian_name": "کوکو سبزی",
+        "tags": [
+            "herbs",
+            "vegetarian"
+        ],
+        "ingredients": [
+            "3 cups mixed chopped herbs (parsley, cilantro, chives, dill)",
+            "4 eggs",
+            "1/2 cup chopped walnuts (optional)",
+            "salt and turmeric",
+            "oil"
+        ],
+        "instructions": [
+            "سبزی‌ها را با تخم‌مرغ و ادویه مخلوط کنید.",
+            "مخلوط را داخل قالب یا در تابه سرخ کنید.",
+            "تا زمانی که طلایی شود بپزید و با نان سرو کنید."
+        ],
+        "publishedAt": "2025-01-01T00:00:00Z"
+    },
+    {
+        "id": "p016",
+        "name": "Dizi (Abgoosht)",
+        "persian_name": "دیزی (آبگوشت)",
+        "tags": [
+            "stew",
+            "traditional"
+        ],
+        "ingredients": [
+            "500g lamb with bone",
+            "1 cup chickpeas (soaked)",
+            "2 potatoes",
+            "1 onion",
+            "1 tomato",
+            "turmeric and salt"
+        ],
+        "instructions": [
+            "همه مواد را در قابلمه ریخته و بپزید تا کاملاً نرم شوند.",
+            "آب را جدا کرده و گوشت و سبزیجات را کوبیده و میل کنید.",
+            "نان یا سبزه همراه با ترشی سرو می‌شود."
+        ],
+        "publishedAt": "2025-01-01T00:00:00Z"
+    },
+    {
+        "id": "p017",
+        "name": "Halim",
+        "persian_name": "حلیم",
+        "tags": [
+            "breakfast",
+            "wheat",
+            "porridge"
+        ],
+        "ingredients": [
+            "2 cups wheat (soaked)",
+            "500g lamb or chicken",
+            "sugar or salt (depending on sweet/savory style)",
+            "cinnamon for serving"
+        ],
+        "instructions": [
+            "گندم و گوشت را با آب بپزید تا کاملاً له شوند.",
+            "مخلوط را هم بزنید تا یکدست شود.",
+            "با روغن حیوانی، شکر یا دارچین سرو کنید."
+        ],
+        "publishedAt": "2025-01-01T00:00:00Z"
+    },
+    {
+        "id": "p018",
+        "name": "Olivieh Salad",
+        "persian_name": "سالاد الویه",
+        "tags": [
+            "salad",
+            "chicken"
+        ],
+        "ingredients": [
+            "2 cups cooked chicken, shredded",
+            "2 potatoes cooked and diced",
+            "2 pickles chopped",
+            "2 boiled eggs chopped",
+            "mayonnaise",
+            "salt"
+        ],
+        "instructions": [
+            "تمام مواد را مخلوط کنید.",
+            "مایونز و نمک را افزوده و طعم‌دهی کنید.",
+            "سرد سرو شود."
+        ],
+        "publishedAt": "2025-01-01T00:00:00Z"
+    },
+    {
+        "id": "p019",
+        "name": "Shirazi Salad",
+        "persian_name": "سالاد شیرازی",
+        "tags": [
+            "salad",
+            "fresh"
+        ],
+        "ingredients": [
+            "2 cucumbers diced",
+            "3 tomatoes diced",
+            "1 small onion finely chopped",
+            "juice of 1 lemon",
+            "mint (optional)",
+            "salt"
+        ],
+        "instructions": [
+            "تمام مواد را خرد و در ظرف بریزید.",
+            "با آب لیمو و نمک چاشنی بزنید.",
+            "سرد سرو کنید."
+        ],
+        "publishedAt": "2025-01-01T00:00:00Z"
+    },
+    {
+        "id": "p020",
+        "name": "Shole Zard",
+        "persian_name": "شله‌زرد",
+        "tags": [
+            "dessert",
+            "saffron",
+            "rice"
+        ],
+        "ingredients": [
+            "1 cup rice",
+            "6 cups water",
+            "2 cups sugar",
+            "1 tsp saffron dissolved",
+            "1 tbsp rosewater",
+            "slivered almonds for garnish"
+        ],
+        "instructions": [
+            "برنج را پخته و له کنید.",
+            "شکر و زعفران و گلاب را اضافه کنید و بجوشانید تا غلیظ شود.",
+            "با خلال بادام و دارچین تزیین کنید."
+        ],
+        "publishedAt": "2025-01-01T00:00:00Z"
+    }
+]
