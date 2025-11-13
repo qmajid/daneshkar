@@ -3,6 +3,7 @@ package json
 import (
 	"encoding/json"
 	"log"
+	"net/http"
 	"os"
 	"time"
 )
@@ -35,4 +36,13 @@ func init() {
 
 func GetAll() []Recipe {
 	return recipes
+}
+
+func GetByID(id string) (*Recipe, int) {
+	for _, recipe := range recipes {
+		if recipe.ID == id {
+			return &recipe, http.StatusOK
+		}
+	}
+	return nil, http.StatusNotFound
 }

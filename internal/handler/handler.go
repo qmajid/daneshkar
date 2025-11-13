@@ -16,3 +16,17 @@ func Pong(c *gin.Context) {
 func Recipes(c *gin.Context) {
 	c.JSON(http.StatusOK, recipes.GetAll())
 }
+
+func RecipesByID(c *gin.Context) {
+	id := c.Param("id")
+	recipe, status := recipes.GetByID(id)
+
+	if recipe == nil {
+		c.JSON(status, gin.H{
+			"error": "recipe not found",
+		})
+		return
+	}
+
+	c.JSON(status, recipe)
+}
