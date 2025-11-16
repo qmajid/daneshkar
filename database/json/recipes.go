@@ -54,13 +54,12 @@ func InsertRecipe(newRecipe Recipe) (int, error) {
 	return persistRecipes()
 }
 
-func UpdateRecipe(id string, updatedRecipe Recipe) (int, error) {
+func UpdateRecipe(updatedRecipe Recipe) (int, error) {
 	updated := false
 	for i, recipe := range recipes {
-		if recipe.ID == id {
+		if recipe.ID == updatedRecipe.ID {
 			// Replace the recipe at index i with updatedRecipe.
 			// Ensure the ID remains unchanged.
-			updatedRecipe.ID = id
 			recipes[i] = updatedRecipe
 			updated = true
 			break
@@ -94,16 +93,12 @@ func DeleteRecipe(id string) (int, error) {
 	return persistRecipes()
 }
 
-func PatchRecipeTime(id string, newTime string) (int, error) {
+func PatchRecipeTime(patchRecipes Recipe) (int, error) {
 	found := false
 
-	for i, recipe := range recipes {
-		if recipe.ID == id {
-			parsedTime, err := time.Parse(time.RFC3339, newTime)
-			if err != nil {
-				return http.StatusBadRequest, err
-			}
-			recipes[i].PublishedAt = parsedTime
+	for i, r := range recipes {
+		if r.ID == patchRecipes.ID {
+			recipes[i].PublishedAt = time.Now()
 			found = true
 			break
 		}

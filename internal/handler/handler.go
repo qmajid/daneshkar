@@ -31,31 +31,73 @@ func RecipesByID(c *gin.Context) {
 	c.JSON(status, recipe)
 }
 
-func InsertRecipe(c *gin.Context) {
-	var newRecipe recipes.Recipe
+func InsertNewRecipes(c *gin.Context) {
+	var r recipes.Recipe
 
-	if err := c.ShouldBindJSON(&newRecipe); err != nil {
-		c.JSON(http.StatusBadRequest, gin.H{
-			"error": err.Error(),
-		})
-		return
-	}
-
-
-
-	// Optionally, initialize ID/timestamp here if needed
-	// e.g. generate unique ID or set PublishedAt
-
-	status, err := recipes.InsertRecipe(newRecipe)
+	err := c.ShouldBindJSON(&r)
 	if err != nil {
-		c.JSON(status, gin.H{
-			"error": err.Error(),
-		})
+		c.JSON(http.StatusBadRequest, gin.H{"error": "invalid body request"})
 		return
 	}
 
-	c.JSON(status, gin.H{
-		"message": "recipe inserted successfully",
-		"recipe":  newRecipe,
-	})
+	statusCode, err := recipes.InsertRecipe(r)
+	if err != nil {
+		c.JSON(statusCode, gin.H{"err": err.Error()})
+		return
+	}
+
+	c.JSON(http.StatusOK, gin.H{"message": "successfully insert new recipes."})
+}
+
+func UpdateRecipes(c *gin.Context) {
+	var r recipes.Recipe
+
+	err := c.ShouldBindJSON(&r)
+	if err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{"error": "invalid body request"})
+		return
+	}
+
+	statusCode, err := recipes.UpdateRecipe(r)
+	if err != nil {
+		c.JSON(statusCode, gin.H{"err": err.Error()})
+		return
+	}
+
+	c.JSON(http.StatusOK, gin.H{"message": "successfully update current recipes."})
+}
+
+func DeleteRecipes(c *gin.Context) {
+	id := c.Param("id")
+
+	if len(id) == 0 {
+		c.JSON(http.StatusBadRequest, gin.H{"error": "invalid id"})
+		return
+	}
+
+	code, err := recipes.DeleteRecipe(id)
+	if err != nil {
+		c.JSON(code, gin.H{"error": err.Error()})
+		return
+	}
+
+	c.JSON(http.StatusOK, gin.H{"message": "successfully delete"})
+}
+
+func PatchRecipesTime(c *gin.Context) {
+	var r recipes.Recipe
+
+	err := c.ShouldBindJSON(&r)
+	if err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{"error": "invalid body request"})
+		return
+	}
+
+	statusCode, err := recipes.PatchRecipeTime(r)
+	if err != nil {
+		c.JSON(statusCode, gin.H{"err": err.Error()})
+		return
+	}
+
+	c.JSON(http.StatusOK, gin.H{"message": "successfully patched recipe publish time."})
 }
