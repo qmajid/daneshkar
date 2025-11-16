@@ -51,19 +51,7 @@ func InsertRecipe(newRecipe Recipe) (int, error) {
 	// Add the new recipe to the slice
 	recipes = append(recipes, newRecipe)
 
-	// Marshal the updated recipes slice to JSON
-	data, err := json.MarshalIndent(recipes, "", "  ")
-	if err != nil {
-		return http.StatusBadRequest, err
-	}
-
-	// Write the marshaled data back to the JSON file
-	err = os.WriteFile(ReceipsFilePath, data, 0644)
-	if err != nil {
-		return http.StatusInternalServerError, err
-	}
-
-	return http.StatusOK, nil
+	return persistRecipes()
 }
 
 func UpdateRecipe(id string, updatedRecipe Recipe) (int, error) {
@@ -83,21 +71,8 @@ func UpdateRecipe(id string, updatedRecipe Recipe) (int, error) {
 		return http.StatusNotFound, nil
 	}
 
-	// Marshal the updated recipes slice to JSON
-	data, err := json.MarshalIndent(recipes, "", "  ")
-	if err != nil {
-		return http.StatusBadRequest, err
-	}
-
-	// Write the marshaled data back to the JSON file
-	err = os.WriteFile(ReceipsFilePath, data, 0644)
-	if err != nil {
-		return http.StatusInternalServerError, err
-	}
-
-	return http.StatusOK, nil
+	return persistRecipes()
 }
-
 
 func DeleteRecipe(id string) (int, error) {
 	found := false
@@ -116,19 +91,7 @@ func DeleteRecipe(id string) (int, error) {
 
 	recipes = newRecipes
 
-	// Marshal the updated recipes slice to JSON
-	data, err := json.MarshalIndent(recipes, "", "  ")
-	if err != nil {
-		return http.StatusBadRequest, err
-	}
-
-	// Write the marshaled data back to the JSON file
-	err = os.WriteFile(ReceipsFilePath, data, 0644)
-	if err != nil {
-		return http.StatusInternalServerError, err
-	}
-
-	return http.StatusOK, nil
+	return persistRecipes()
 }
 
 func PatchRecipeTime(id string, newTime string) (int, error) {
@@ -150,6 +113,10 @@ func PatchRecipeTime(id string, newTime string) (int, error) {
 		return http.StatusNotFound, nil
 	}
 
+	return persistRecipes()
+}
+
+func persistRecipes() (int, error) {
 	// Marshal the updated recipes slice to JSON
 	data, err := json.MarshalIndent(recipes, "", "  ")
 	if err != nil {
@@ -157,8 +124,7 @@ func PatchRecipeTime(id string, newTime string) (int, error) {
 	}
 
 	// Write the marshaled data back to the JSON file
-	err = os.WriteFile(ReceipsFilePath, data, 0644)
-	if err != nil {
+	if err := os.WriteFile(ReceipsFilePath, data, 0644); err != nil {
 		return http.StatusInternalServerError, err
 	}
 
