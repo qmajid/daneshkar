@@ -8,6 +8,13 @@ import (
 	v1 "github.com/qmajid/daneshkar/internal/route/v1"
 )
 
+// @title           Daneshkar API
+// @version         1.0
+// @description     This is a sample server for Daneshkar API.
+// @host            localhost:8081
+// @BasePath        /
+// @schemes         http
+
 type Info struct {
 	Name   string `json:"name"`
 	Family string `json:"family"`

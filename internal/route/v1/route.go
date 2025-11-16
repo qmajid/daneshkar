@@ -10,5 +10,8 @@ func InitRoute(e *gin.Engine) {
 	v1.GET("/ping", handler.Pong)
 	v1.GET("/recipes", handler.Recipes)
 	v1.GET("/recipes/:id", handler.RecipesByID)
-	v1.POST("/recipes/", handler.InsertNewRecipes)
+	v1.POST("/recipes", handler.InsertNewRecipes)
+	v1.PUT("/recipes", handler.UpdateRecipes)
+	v1.PATCH("/recipes", handler.PatchRecipesTime)
+	v1.DELETE("/recipes/:id", handler.DeleteRecipes)
 }
