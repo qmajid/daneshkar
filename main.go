@@ -5,6 +5,7 @@ import (
 	"net/http"
 
 	"github.com/gin-gonic/gin"
+	"github.com/qmajid/daneshkar/internal/middleware"
 	v1 "github.com/qmajid/daneshkar/internal/route/v1"
 )
 
@@ -23,6 +24,7 @@ type Info struct {
 func main() {
 	// Create a Gin router with default middleware (logger and recovery)
 	r := gin.Default()
+	r.Use(middleware.AuthRequired("test-key"))
 	v1.InitRoute(r)
 
 	// Define a simple GET endpoint
