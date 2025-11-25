@@ -24,7 +24,7 @@ type Info struct {
 func main() {
 	// Create a Gin router with default middleware (logger and recovery)
 	r := gin.Default()
-	r.Use(middleware.AuthRequired("test-key"))
+	r.Use(middleware.AuthRequired("test-key"), middleware.JwtMiddlware())
 	v1.InitRoute(r)
 
 	// Define a simple GET endpoint
