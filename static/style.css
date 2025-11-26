@@ -1,0 +1,17 @@
+body {
+    font-family: Arial, sans-serif;
+    max-width: 600px;
+    margin: 30px auto;
+}
+
+img {
+    border-radius: 6px;
+}
+
+h1 {
+    color: #c0392b;
+}
+
+a {
+    color: #3498db;
+}

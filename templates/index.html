@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>{{ .title }}</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+    <h1>🍳 Recipe List</h1>
+
+    <ul>
+        {{range .recipes}}
+        <li style="margin-bottom:15px;">
+            <a href="/recipe/{{.ID}}">
+                {{.Title}}
+            </a>
+        </li>
+        {{end}}
+    </ul>
+</body>
+
+</html>

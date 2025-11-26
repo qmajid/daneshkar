@@ -21,6 +21,11 @@ func Pong(c *gin.Context) {
 // @Router       /v1/recipes [get]
 func Recipes(c *gin.Context) {
 	c.JSON(http.StatusOK, recipes.GetAll())
+
+	// c.HTML(http.StatusOK, "index.html", gin.H{
+	// 	"Title":   "Recipe List",
+	// 	"recipes": recipes.GetAll(),
+	// })
 }
 
 // @Summary      Get recipe by ID
@@ -43,7 +48,11 @@ func RecipesByID(c *gin.Context) {
 		return
 	}
 
-	c.JSON(status, recipe)
+	c.HTML(http.StatusOK, "recipe.html", gin.H{
+		"title":  recipe.Title,
+		"recipe": recipe,
+	})
+	// c.JSON(status, recipe)
 }
 
 // @Summary      Insert new recipe

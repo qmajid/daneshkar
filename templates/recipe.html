@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>{{ .recipe.Title }}</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+    <h3>Ingredients</h3>
+    <ul>
+        {{range .recipe.Ingredients}}
+        <li>{{.}}</li>
+        {{end}}
+    </ul>
+
+    <h3>Instructions</h3>
+    <ol>
+        {{range .recipe.Instructions}}
+        <li>{{.}}</li>
+        {{end}}
+    </ol>
+
+    <a href="/">⬅ Back to recipes</a>
+</body>
+
+</html>
