@@ -38,8 +38,9 @@ func Recipes(c *gin.Context) {
 // @Failure      500  {object}  map[string]string
 // @Router       /v1/recipes/{id} [get]
 func RecipesByID(c *gin.Context) {
+	j := recipes.JsonRecipes{}
 	id := c.Param("id")
-	rcp, status := recipes.GetByID(id)
+	rcp, status := j.GetByID(id)
 
 	if rcp == nil {
 		c.JSON(status, gin.H{
@@ -60,10 +61,11 @@ func RecipesByID(c *gin.Context) {
 // @Success      200  {object}  recipes.Recipe
 // @Failure      404  {object}  map[string]string
 // @Failure      500  {object}  map[string]string
-// @Router       /v1/recipes/{id}/emial [get]
+// @Router       /v1/recipes/{id}/email [get]
 func GenerateEmailTemplate(c *gin.Context) {
+	j := recipes.JsonRecipes{}
 	id := c.Param("id")
-	rcp, status := recipes.GetByID(id)
+	rcp, status := j.GetByID(id)
 
 	if rcp == nil {
 		c.JSON(status, gin.H{

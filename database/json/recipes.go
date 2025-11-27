@@ -19,6 +19,8 @@ type Recipe struct {
 	PublishedAt  time.Time `json:"publishedAt"`
 }
 
+type JsonRecipes struct{}
+
 var recipes []Recipe
 
 const ReceipsFilePath string = "./database/json/recipes.json"
@@ -38,7 +40,7 @@ func GetAll() []Recipe {
 	return recipes
 }
 
-func GetByID(id string) (*Recipe, int) {
+func (j JsonRecipes) GetByID(id string) (*Recipe, int) {
 	for _, recipe := range recipes {
 		if recipe.ID == id {
 			return &recipe, http.StatusOK

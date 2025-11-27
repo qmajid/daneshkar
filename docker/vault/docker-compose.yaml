@@ -1,0 +1,17 @@
+services:
+  vault:
+    image: hashicorp/vault:latest
+    container_name: vault
+    cap_add:
+      - IPC_LOCK
+    ports:
+      - "8200:8200"
+    environment:
+      VAULT_LOCAL_CONFIG: >
+        {"ui":true,
+        "storage":{"raft":{"path":"/vault/data","node_id":"node1"}},
+        "listener":{"tcp":{"address":"0.0.0.0:8200","tls_disable":true}},
+        "disable_mlock":true}
+    volumes:
+      - ./vault-data:/vault/data
+    command: "vault server"
