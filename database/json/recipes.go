@@ -13,7 +13,6 @@ type Recipe struct {
 	ID           string    `json:"id"`
 	Title        string    `json:"title"`
 	PersianName  string    `json:"persian_name"`
-	Logo         string    `json:"logo"`
 	Tags         []string  `json:"tags"`
 	Ingredients  []string  `json:"ingredients"`
 	Instructions []string  `json:"instructions"`

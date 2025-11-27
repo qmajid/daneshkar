@@ -39,19 +39,16 @@ func Recipes(c *gin.Context) {
 // @Router       /v1/recipes/{id} [get]
 func RecipesByID(c *gin.Context) {
 	id := c.Param("id")
-	recipe, status := recipes.GetByID(id)
+	rcp, status := recipes.GetByID(id)
 
-	if recipe == nil {
+	if rcp == nil {
 		c.JSON(status, gin.H{
 			"error": "recipe not found",
 		})
 		return
 	}
 
-	c.HTML(http.StatusOK, "recipe.html", gin.H{
-		"title":  recipe.Title,
-		"recipe": recipe,
-	})
+	c.HTML(http.StatusOK, "email.html", rcp)
 	// c.JSON(status, recipe)
 }
 
