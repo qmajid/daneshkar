@@ -48,6 +48,30 @@ func RecipesByID(c *gin.Context) {
 		return
 	}
 
+	// c.HTML(http.StatusOK, "email.html", rcp)
+	c.JSON(status, rcp)
+}
+
+// @Summary      Get recipe by ID and return email format
+// @Description  Get a single recipe by its ID.
+// @Tags         recipes
+// @Produce      json
+// @Param        id   path      string  true  "Recipe ID"
+// @Success      200  {object}  recipes.Recipe
+// @Failure      404  {object}  map[string]string
+// @Failure      500  {object}  map[string]string
+// @Router       /v1/recipes/{id}/emial [get]
+func GenerateEmailTemplate(c *gin.Context) {
+	id := c.Param("id")
+	rcp, status := recipes.GetByID(id)
+
+	if rcp == nil {
+		c.JSON(status, gin.H{
+			"error": "recipe not found",
+		})
+		return
+	}
+
 	c.HTML(http.StatusOK, "email.html", rcp)
 	// c.JSON(status, recipe)
 }
