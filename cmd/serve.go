@@ -3,11 +3,22 @@ package cmd
 import (
 	"fmt"
 	"log"
+	"net/http"
 
 	"github.com/gin-gonic/gin"
 	v1 "github.com/qmajid/daneshkar/internal/route/v1"
 	"github.com/spf13/cobra"
 )
+
+const asciiArt = ` ______   _______  _        _______  _______           _        _______  _______ 
+(  __  \ (  ___  )( (    /|(  ____ \(  ____ \|\     /|| \    /\(  ___  )(  ____ )
+| (  \  )| (   ) ||  \  ( || (    \/| (    \/| )   ( ||  \  / /| (   ) || (    )|
+| |   ) || (___) ||   \ | || (__    | (_____ | (___) ||  (_/ / | (___) || (____)|
+| |   | ||  ___  || (\ \) ||  __)   (_____  )|  ___  ||   _ (  |  ___  ||     __)
+| |   ) || (   ) || | \   || (            ) || (   ) ||  ( \ \ | (   ) || (\ (   
+| (__/  )| )   ( || )  \  || (____/\/\____) || )   ( ||  /  \ \| )   ( || ) \ \__
+(______/ |/     \||/    )_)(_______/\_______)|/     \||_/    \/|/     \||/   \__/
+`
 
 var (
 	port int
@@ -21,6 +32,7 @@ var serveCmd = &cobra.Command{
 		addr := fmt.Sprintf(":%d", port)
 
 		r := gin.Default()
+		r.GET("", AsciiArt)
 		// r.Use(middleware.AuthRequired("test-key"), middleware.JwtMiddlware())
 
 		// serve /static/*.css
@@ -40,4 +52,8 @@ func init() {
 	rootCmd.AddCommand(serveCmd)
 
 	serveCmd.Flags().IntVarP(&port, "port", "p", 8081, "server port")
+}
+
+func AsciiArt(c *gin.Context) {
+	c.String(http.StatusOK, asciiArt)
 }
