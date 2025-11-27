@@ -6,5 +6,8 @@
 run:
 	go run main.go serve --port 8081
 
+test:
+	go test ./...
+
 swag:
 	swag init --generalInfo main.go --output docs
