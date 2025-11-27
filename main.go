@@ -5,6 +5,7 @@ import (
 	"net/http"
 
 	"github.com/gin-gonic/gin"
+	"github.com/qmajid/daneshkar/cmd"
 	v1 "github.com/qmajid/daneshkar/internal/route/v1"
 )
 
@@ -31,6 +32,10 @@ const asciiArt = ` ______   _______  _        _______  _______           _      
 `
 
 func main() {
+
+	cmd.Execute()
+	return
+
 	// Create a Gin router with default middleware (logger and recovery)
 	r := gin.Default()
 	// r.Use(middleware.AuthRequired("test-key"), middleware.JwtMiddlware())
