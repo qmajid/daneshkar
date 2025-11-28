@@ -1,7 +1,7 @@
 # BINARY := myapp
 # PKG := ./...
 
-.PHONY: run swag
+.PHONY: run swag test mock
 
 run:
 	go run main.go serve --port 8081
