@@ -7,7 +7,11 @@ import (
 	recipes "github.com/qmajid/daneshkar/database/json"
 )
 
-func Pong(c *gin.Context) {
+type RecipesHandler struct {
+	Service *recipes.JsonService
+}
+
+func (h RecipesHandler) Pong(c *gin.Context) {
 	c.JSON(http.StatusOK, gin.H{
 		"message": "pong-from-v1",
 	})
@@ -19,8 +23,8 @@ func Pong(c *gin.Context) {
 // @Produce      json
 // @Success      200  {array}   recipes.Recipe
 // @Router       /v1/recipes [get]
-func Recipes(c *gin.Context) {
-	c.JSON(http.StatusOK, recipes.GetAll())
+func (h RecipesHandler) Recipes(c *gin.Context) {
+	c.JSON(http.StatusOK, h.Service.GetAll())
 
 	// c.HTML(http.StatusOK, "index.html", gin.H{
 	// 	"Title":   "Recipe List",
@@ -37,10 +41,9 @@ func Recipes(c *gin.Context) {
 // @Failure      404  {object}  map[string]string
 // @Failure      500  {object}  map[string]string
 // @Router       /v1/recipes/{id} [get]
-func RecipesByID(c *gin.Context) {
-	j := recipes.JsonRecipes{}
+func (h RecipesHandler) RecipesByID(c *gin.Context) {
 	id := c.Param("id")
-	rcp, status := j.GetByID(id)
+	rcp, status := h.Service.GetByID(id)
 
 	if rcp == nil {
 		c.JSON(status, gin.H{
@@ -62,10 +65,9 @@ func RecipesByID(c *gin.Context) {
 // @Failure      404  {object}  map[string]string
 // @Failure      500  {object}  map[string]string
 // @Router       /v1/recipes/{id}/email [get]
-func GenerateEmailTemplate(c *gin.Context) {
-	j := recipes.JsonRecipes{}
+func (h RecipesHandler) GenerateEmailTemplate(c *gin.Context) {
 	id := c.Param("id")
-	rcp, status := j.GetByID(id)
+	rcp, status := h.Service.GetByID(id)
 
 	if rcp == nil {
 		c.JSON(status, gin.H{
@@ -87,7 +89,7 @@ func GenerateEmailTemplate(c *gin.Context) {
 // @Success      200     {object} map[string]string
 // @Failure      400     {object} map[string]string
 // @Router       /v1/recipes [post]
-func InsertNewRecipes(c *gin.Context) {
+func (h RecipesHandler) InsertNewRecipes(c *gin.Context) {
 	var r recipes.Recipe
 
 	err := c.ShouldBindJSON(&r)
@@ -96,7 +98,7 @@ func InsertNewRecipes(c *gin.Context) {
 		return
 	}
 
-	statusCode, err := recipes.InsertRecipe(r)
+	statusCode, err := h.Service.InsertRecipe(r)
 	if err != nil {
 		c.JSON(statusCode, gin.H{"err": err.Error()})
 		return
@@ -114,7 +116,7 @@ func InsertNewRecipes(c *gin.Context) {
 // @Success      200     {object} map[string]string
 // @Failure      400     {object} map[string]string
 // @Router       /v1/recipes [put]
-func UpdateRecipes(c *gin.Context) {
+func (h RecipesHandler) UpdateRecipes(c *gin.Context) {
 	var r recipes.Recipe
 
 	err := c.ShouldBindJSON(&r)
@@ -123,7 +125,7 @@ func UpdateRecipes(c *gin.Context) {
 		return
 	}
 
-	statusCode, err := recipes.UpdateRecipe(r)
+	statusCode, err := h.Service.UpdateRecipe(r)
 	if err != nil {
 		c.JSON(statusCode, gin.H{"err": err.Error()})
 		return
@@ -140,7 +142,7 @@ func UpdateRecipes(c *gin.Context) {
 // @Success      200  {object}  map[string]string
 // @Failure      404  {object}  map[string]string
 // @Router       /v1/recipes/{id} [delete]
-func DeleteRecipes(c *gin.Context) {
+func (h RecipesHandler) DeleteRecipes(c *gin.Context) {
 	id := c.Param("id")
 
 	if len(id) == 0 {
@@ -148,7 +150,7 @@ func DeleteRecipes(c *gin.Context) {
 		return
 	}
 
-	code, err := recipes.DeleteRecipe(id)
+	code, err := h.Service.DeleteRecipe(id)
 	if err != nil {
 		c.JSON(code, gin.H{"error": err.Error()})
 		return
@@ -166,7 +168,7 @@ func DeleteRecipes(c *gin.Context) {
 // @Success      200     {object} map[string]string
 // @Failure      400     {object} map[string]string
 // @Router       /v1/recipes [patch]
-func PatchRecipesTime(c *gin.Context) {
+func (h RecipesHandler) PatchRecipesTime(c *gin.Context) {
 	var r recipes.Recipe
 
 	err := c.ShouldBindJSON(&r)
@@ -175,7 +177,7 @@ func PatchRecipesTime(c *gin.Context) {
 		return
 	}
 
-	statusCode, err := recipes.PatchRecipeTime(r)
+	statusCode, err := h.Service.PatchRecipeTime(r)
 	if err != nil {
 		c.JSON(statusCode, gin.H{"err": err.Error()})
 		return

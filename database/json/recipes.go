@@ -19,29 +19,34 @@ type Recipe struct {
 	PublishedAt  time.Time `json:"publishedAt"`
 }
 
-type JsonRecipes struct{}
+type JsonService struct {
+	filePath string
+	data     []Recipe
+}
 
-var recipes []Recipe
+func NewJsonService(data []Recipe) *JsonService {
+	return &JsonService{data: data}
+}
 
-const ReceipsFilePath string = "./database/json/recipes.json"
-
-func init() {
-	file, err := os.ReadFile(ReceipsFilePath)
+func (s *JsonService) Load(path string) {
+	s.filePath = path
+	file, err := os.ReadFile(path)
 	if err != nil {
 		log.Fatal("failed to read recipes file: ", err)
 	}
 
-	if err := json.Unmarshal(file, &recipes); err != nil {
+	if err := json.Unmarshal(file, &s.data); err != nil {
 		log.Fatal("failed to unmarshal recipes JSON:", err)
 	}
+
 }
 
-func GetAll() []Recipe {
-	return recipes
+func (s *JsonService) GetAll() []Recipe {
+	return s.data
 }
 
-func (j JsonRecipes) GetByID(id string) (*Recipe, int) {
-	for _, recipe := range recipes {
+func (s JsonService) GetByID(id string) (*Recipe, int) {
+	for _, recipe := range s.data {
 		if recipe.ID == id {
 			return &recipe, http.StatusOK
 		}
@@ -49,20 +54,20 @@ func (j JsonRecipes) GetByID(id string) (*Recipe, int) {
 	return nil, http.StatusNotFound
 }
 
-func InsertRecipe(newRecipe Recipe) (int, error) {
+func (s *JsonService) InsertRecipe(newRecipe Recipe) (int, error) {
 	// Add the new recipe to the slice
-	recipes = append(recipes, newRecipe)
+	s.data = append(s.data, newRecipe)
 
-	return persistRecipes()
+	return s.persistRecipes()
 }
 
-func UpdateRecipe(updatedRecipe Recipe) (int, error) {
+func (s *JsonService) UpdateRecipe(updatedRecipe Recipe) (int, error) {
 	updated := false
-	for i, recipe := range recipes {
+	for i, recipe := range s.data {
 		if recipe.ID == updatedRecipe.ID {
 			// Replace the recipe at index i with updatedRecipe.
 			// Ensure the ID remains unchanged.
-			recipes[i] = updatedRecipe
+			s.data[i] = updatedRecipe
 			updated = true
 			break
 		}
@@ -72,13 +77,13 @@ func UpdateRecipe(updatedRecipe Recipe) (int, error) {
 		return http.StatusNotFound, nil
 	}
 
-	return persistRecipes()
+	return s.persistRecipes()
 }
 
-func DeleteRecipe(id string) (int, error) {
+func (s *JsonService) DeleteRecipe(id string) (int, error) {
 	found := false
-	newRecipes := make([]Recipe, 0, len(recipes))
-	for _, recipe := range recipes {
+	newRecipes := make([]Recipe, 0, len(s.data))
+	for _, recipe := range s.data {
 		if recipe.ID == id {
 			found = true
 			continue // skip the recipe to delete
@@ -90,17 +95,17 @@ func DeleteRecipe(id string) (int, error) {
 		return http.StatusNotFound, nil
 	}
 
-	recipes = newRecipes
+	s.data = newRecipes
 
-	return persistRecipes()
+	return s.persistRecipes()
 }
 
-func PatchRecipeTime(patchRecipes Recipe) (int, error) {
+func (s *JsonService) PatchRecipeTime(patchRecipes Recipe) (int, error) {
 	found := false
 
-	for i, r := range recipes {
+	for i, r := range s.data {
 		if r.ID == patchRecipes.ID {
-			recipes[i].PublishedAt = time.Now()
+			s.data[i].PublishedAt = time.Now()
 			found = true
 			break
 		}
@@ -110,18 +115,18 @@ func PatchRecipeTime(patchRecipes Recipe) (int, error) {
 		return http.StatusNotFound, nil
 	}
 
-	return persistRecipes()
+	return s.persistRecipes()
 }
 
-func persistRecipes() (int, error) {
+func (s *JsonService) persistRecipes() (int, error) {
 	// Marshal the updated recipes slice to JSON
-	data, err := json.MarshalIndent(recipes, "", "  ")
+	data, err := json.MarshalIndent(s.data, "", "  ")
 	if err != nil {
 		return http.StatusBadRequest, err
 	}
 
 	// Write the marshaled data back to the JSON file
-	if err := os.WriteFile(ReceipsFilePath, data, 0644); err != nil {
+	if err := os.WriteFile(s.filePath, data, 0644); err != nil {
 		return http.StatusInternalServerError, err
 	}
 
