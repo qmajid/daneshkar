@@ -24,8 +24,8 @@ type JsonService struct {
 	data     []Recipe
 }
 
-func NewJsonService(data []Recipe) *JsonService {
-	return &JsonService{data: data}
+func NewJsonService(data []Recipe, fp string) *JsonService {
+	return &JsonService{data: data, filePath: fp}
 }
 
 func (s *JsonService) Load(path string) {

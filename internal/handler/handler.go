@@ -11,6 +11,10 @@ type RecipesHandler struct {
 	Service recipes.IRecipes
 }
 
+func NewHandler(s recipes.IRecipes) *RecipesHandler {
+	return &RecipesHandler{Service: s}
+}
+
 func (h RecipesHandler) Pong(c *gin.Context) {
 	c.JSON(http.StatusOK, gin.H{
 		"message": "pong-from-v1",
