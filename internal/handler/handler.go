@@ -8,7 +8,7 @@ import (
 )
 
 type RecipesHandler struct {
-	Service *recipes.JsonService
+	Service recipes.IRecipes
 }
 
 func (h RecipesHandler) Pong(c *gin.Context) {

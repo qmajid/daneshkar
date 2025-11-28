@@ -40,6 +40,35 @@ func (m *MockIRecipes) EXPECT() *MockIRecipesMockRecorder {
 	return m.recorder
 }
 
+// DeleteRecipe mocks base method.
+func (m *MockIRecipes) DeleteRecipe(id string) (int, error) {
+	m.ctrl.T.Helper()
+	ret := m.ctrl.Call(m, "DeleteRecipe", id)
+	ret0, _ := ret[0].(int)
+	ret1, _ := ret[1].(error)
+	return ret0, ret1
+}
+
+// DeleteRecipe indicates an expected call of DeleteRecipe.
+func (mr *MockIRecipesMockRecorder) DeleteRecipe(id any) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "DeleteRecipe", reflect.TypeOf((*MockIRecipes)(nil).DeleteRecipe), id)
+}
+
+// GetAll mocks base method.
+func (m *MockIRecipes) GetAll() []json.Recipe {
+	m.ctrl.T.Helper()
+	ret := m.ctrl.Call(m, "GetAll")
+	ret0, _ := ret[0].([]json.Recipe)
+	return ret0
+}
+
+// GetAll indicates an expected call of GetAll.
+func (mr *MockIRecipesMockRecorder) GetAll() *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "GetAll", reflect.TypeOf((*MockIRecipes)(nil).GetAll))
+}
+
 // GetByID mocks base method.
 func (m *MockIRecipes) GetByID(id string) (*json.Recipe, int) {
 	m.ctrl.T.Helper()
@@ -53,4 +82,76 @@ func (m *MockIRecipes) GetByID(id string) (*json.Recipe, int) {
 func (mr *MockIRecipesMockRecorder) GetByID(id any) *gomock.Call {
 	mr.mock.ctrl.T.Helper()
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "GetByID", reflect.TypeOf((*MockIRecipes)(nil).GetByID), id)
+}
+
+// InsertRecipe mocks base method.
+func (m *MockIRecipes) InsertRecipe(newRecipe json.Recipe) (int, error) {
+	m.ctrl.T.Helper()
+	ret := m.ctrl.Call(m, "InsertRecipe", newRecipe)
+	ret0, _ := ret[0].(int)
+	ret1, _ := ret[1].(error)
+	return ret0, ret1
+}
+
+// InsertRecipe indicates an expected call of InsertRecipe.
+func (mr *MockIRecipesMockRecorder) InsertRecipe(newRecipe any) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "InsertRecipe", reflect.TypeOf((*MockIRecipes)(nil).InsertRecipe), newRecipe)
+}
+
+// Load mocks base method.
+func (m *MockIRecipes) Load(path string) {
+	m.ctrl.T.Helper()
+	m.ctrl.Call(m, "Load", path)
+}
+
+// Load indicates an expected call of Load.
+func (mr *MockIRecipesMockRecorder) Load(path any) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Load", reflect.TypeOf((*MockIRecipes)(nil).Load), path)
+}
+
+// PatchRecipeTime mocks base method.
+func (m *MockIRecipes) PatchRecipeTime(patchRecipes json.Recipe) (int, error) {
+	m.ctrl.T.Helper()
+	ret := m.ctrl.Call(m, "PatchRecipeTime", patchRecipes)
+	ret0, _ := ret[0].(int)
+	ret1, _ := ret[1].(error)
+	return ret0, ret1
+}
+
+// PatchRecipeTime indicates an expected call of PatchRecipeTime.
+func (mr *MockIRecipesMockRecorder) PatchRecipeTime(patchRecipes any) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "PatchRecipeTime", reflect.TypeOf((*MockIRecipes)(nil).PatchRecipeTime), patchRecipes)
+}
+
+// UpdateRecipe mocks base method.
+func (m *MockIRecipes) UpdateRecipe(updatedRecipe json.Recipe) (int, error) {
+	m.ctrl.T.Helper()
+	ret := m.ctrl.Call(m, "UpdateRecipe", updatedRecipe)
+	ret0, _ := ret[0].(int)
+	ret1, _ := ret[1].(error)
+	return ret0, ret1
+}
+
+// UpdateRecipe indicates an expected call of UpdateRecipe.
+func (mr *MockIRecipesMockRecorder) UpdateRecipe(updatedRecipe any) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "UpdateRecipe", reflect.TypeOf((*MockIRecipes)(nil).UpdateRecipe), updatedRecipe)
+}
+
+// persistRecipes mocks base method.
+func (m *MockIRecipes) persistRecipes() (int, error) {
+	m.ctrl.T.Helper()
+	ret := m.ctrl.Call(m, "persistRecipes")
+	ret0, _ := ret[0].(int)
+	ret1, _ := ret[1].(error)
+	return ret0, ret1
+}
+
+// persistRecipes indicates an expected call of persistRecipes.
+func (mr *MockIRecipesMockRecorder) persistRecipes() *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "persistRecipes", reflect.TypeOf((*MockIRecipes)(nil).persistRecipes))
 }
