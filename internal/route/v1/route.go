@@ -8,7 +8,7 @@ import (
 
 func InitRoute(e *gin.Engine) {
 	v1 := e.Group("/v1")
-	s := service.NewJsonService(nil, "")
+	s := service.NewJsonService()
 	s.Load("database/json/recipes.json")
 	h := handler.NewHandler(s)
 

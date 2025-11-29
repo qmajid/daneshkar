@@ -24,8 +24,8 @@ type JsonService struct {
 	data     []Recipe
 }
 
-func NewJsonService(data []Recipe, fp string) *JsonService {
-	return &JsonService{data: data, filePath: fp}
+func NewJsonService() *JsonService {
+	return &JsonService{}
 }
 
 func (s *JsonService) Load(path string) {
@@ -38,7 +38,10 @@ func (s *JsonService) Load(path string) {
 	if err := json.Unmarshal(file, &s.data); err != nil {
 		log.Fatal("failed to unmarshal recipes JSON:", err)
 	}
+}
 
+func (s *JsonService) InjectData(data []Recipe) {
+	s.data = data
 }
 
 func (s *JsonService) GetAll() []Recipe {

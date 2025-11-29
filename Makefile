@@ -1,7 +1,7 @@
 # BINARY := myapp
 # PKG := ./...
 
-.PHONY: run swag test mock
+.PHONY: run swag test mock coverage
 
 run:
 	go run main.go serve --port 8081
@@ -16,6 +16,8 @@ coverage:
 	go test ./... -coverprofile=coverage.out
 	go tool cover -html=coverage.out -o docs/coverage.html
 
+benchmark:
+	 go test -bench=. -benchmem
 
 swag:
 	swag init --generalInfo main.go --output docs
